@@ -54,7 +54,7 @@ const Education = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
-                            className={`group relative p-8 rounded-2xl bg-white/[0.02] border ${school.accent === "accent-blue" ? "border-accent-blue/10 hover:border-accent-blue/30" : "border-accent-orange/10 hover:border-accent-orange/30"} transition-colors duration-500`}
+                            className={`group relative p-6 md:p-8 rounded-2xl bg-white/[0.02] border ${school.accent === "accent-blue" ? "border-accent-blue/10 hover:border-accent-blue/30" : "border-accent-orange/10 hover:border-accent-orange/30"} transition-colors duration-500`}
                         >
                             {/* Logo */}
                             <div className="w-16 h-16 relative mb-6 opacity-80 group-hover:opacity-100 transition-opacity">

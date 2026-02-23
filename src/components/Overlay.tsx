@@ -66,12 +66,12 @@ const Overlay = () => {
                         scale: scale2,
                         filter: filter2
                     }}
-                    className="absolute left-10 md:left-24 max-w-2xl px-6 text-left"
+                    className="absolute inset-x-0 mx-auto md:mx-0 md:left-24 w-[90%] md:max-w-2xl px-6 text-center md:text-left"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-                        I improve systems <br /> and <span className="text-accent-blue">processes</span>.
+                    <h2 className="text-3xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
+                        I improve systems <br className="hidden md:block" /> and <span className="text-accent-blue">processes</span>.
                     </h2>
-                    <p className="mt-6 text-2xl font-light text-white/80">
+                    <p className="mt-4 md:mt-6 text-lg md:text-2xl font-light text-white/80">
                         Through engineering, data, and execution.
                     </p>
                 </motion.div>
@@ -84,13 +84,13 @@ const Overlay = () => {
                         scale: scale3,
                         filter: filter3
                     }}
-                    className="absolute right-10 md:right-24 max-w-2xl px-6 text-right"
+                    className="absolute inset-x-0 mx-auto md:mx-0 md:left-auto md:right-24 w-[90%] md:max-w-2xl px-6 text-center md:text-right"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-                        Experience from <br />
+                    <h2 className="text-3xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
+                        Experience from <br className="hidden md:block" />
                         <span className="text-accent-orange">field operations</span>
                     </h2>
-                    <p className="mt-6 text-2xl font-light text-white/80">
+                    <p className="mt-4 md:mt-6 text-lg md:text-2xl font-light text-white/80">
                         to international collaboration.
                     </p>
                 </motion.div>

@@ -46,7 +46,7 @@ const Projects = () => {
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}

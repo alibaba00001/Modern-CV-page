@@ -89,7 +89,7 @@ const ExperienceTimeline = () => {
                     </p>
                 </motion.div>
 
-                <div className="relative border-l-2 border-white/[0.05] ml-4 md:ml-8 gap-12 flex flex-col">
+                <div className="relative border-l-2 border-white/[0.05] ml-4 md:ml-8 gap-10 md:gap-12 flex flex-col">
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={index}

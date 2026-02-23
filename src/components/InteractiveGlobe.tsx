@@ -27,6 +27,11 @@ const InteractiveGlobe = () => {
     const [countries, setCountries] = useState<any>({ features: [] });
     const [hoverD, setHoverD] = useState<any>(null);
     const [dims, setDims] = useState({ w: 1200, h: 800 });
+    const [isTouch, setIsTouch] = useState(false);
+
+    useEffect(() => {
+        setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    }, []);
 
     useEffect(() => {
         fetch("https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson")
@@ -107,11 +112,11 @@ const InteractiveGlobe = () => {
                     transition={{ duration: 0.8 }}
                     className="absolute top-10 left-0 right-0 z-10 text-center pointer-events-none"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3 px-4">
                         Global <span style={{ color: "#3b82f6" }}>Perspective</span>
                     </h2>
-                    <p className="text-white/40 text-sm uppercase tracking-widest">
-                        29 countries · hover globe to zoom · drag to rotate
+                    <p className="text-white/40 text-[10px] md:text-sm uppercase tracking-widest px-4">
+                        29 countries · {isTouch ? "swipe to rotate" : "hover globe to zoom · drag to rotate"}
                     </p>
                 </motion.div>
 
@@ -146,11 +151,11 @@ const InteractiveGlobe = () => {
                 {/* Hover card */}
                 {hoverD && isVisited(hoverD.properties.ADMIN) && (
                     <div
-                        className="absolute top-24 right-8 backdrop-blur-md border p-5 rounded-2xl pointer-events-none min-w-[180px] z-10"
+                        className="absolute top-24 md:top-24 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-8 backdrop-blur-md border p-4 md:p-5 rounded-2xl pointer-events-none min-w-[140px] md:min-w-[180px] z-10"
                         style={{ background: "rgba(5,10,20,0.9)", borderColor: "rgba(59,130,246,0.3)" }}
                     >
-                        <h4 className="text-lg font-bold text-white mb-1">{hoverD.properties.ADMIN}</h4>
-                        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "#3b82f6" }}>Visited</p>
+                        <h4 className="text-base md:text-lg font-bold text-white mb-1">{hoverD.properties.ADMIN}</h4>
+                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest" style={{ color: "#3b82f6" }}>Visited</p>
                     </div>
                 )}
 

@@ -23,8 +23,9 @@ const NavBar = () => {
                 y,
                 background: "rgba(5, 10, 20, 0.85)",
                 border: "1px solid rgba(59, 130, 246, 0.15)",
+                maxWidth: "calc(100vw - 2rem)",
             }}
-            className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-3 py-2 rounded-full backdrop-blur-xl shadow-xl"
+            className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-3 py-2 rounded-full backdrop-blur-xl shadow-xl overflow-x-auto no-scrollbar whitespace-nowrap"
             aria-label="Site navigation"
         >
             {navItems.map((item) => (
