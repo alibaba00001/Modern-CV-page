@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-background: #050a14;
+  --color-foreground: #f8fafc;
+  --color-accent-blue: #3b82f6;
+  --color-accent-orange: #f97316;
+}
+
+:root {
+  --background: #050a14;
+  --foreground: #f8fafc;
+  --accent-blue: #3b82f6;
+  --accent-orange: #f97316;
+}
+
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* ===== Accent color safelist — prevent purging of dynamic classes ===== */
+.text-accent-blue {
+  color: #3b82f6;
+}
+
+.text-accent-orange {
+  color: #f97316;
+}
+
+.bg-accent-blue {
+  background-color: #3b82f6;
+}
+
+.bg-accent-orange {
+  background-color: #f97316;
+}
+
+.border-accent-blue {
+  border-color: #3b82f6;
+}
+
+.border-accent-orange {
+  border-color: #f97316;
+}
+
+.bg-accent-blue\/5 {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.bg-accent-blue\/10 {
+  background-color: rgba(59, 130, 246, 0.10);
+}
+
+.bg-accent-orange\/5 {
+  background-color: rgba(249, 115, 22, 0.05);
+}
+
+.bg-accent-orange\/10 {
+  background-color: rgba(249, 115, 22, 0.10);
+}
+
+.border-accent-blue\/10 {
+  border-color: rgba(59, 130, 246, 0.10);
+}
+
+.border-accent-blue\/20 {
+  border-color: rgba(59, 130, 246, 0.20);
+}
+
+.border-accent-blue\/30 {
+  border-color: rgba(59, 130, 246, 0.30);
+}
+
+.border-accent-blue\/50 {
+  border-color: rgba(59, 130, 246, 0.50);
+}
+
+.border-accent-orange\/10 {
+  border-color: rgba(249, 115, 22, 0.10);
+}
+
+.border-accent-orange\/30 {
+  border-color: rgba(249, 115, 22, 0.30);
+}
+
+.from-accent-blue\/50 {
+  --tw-gradient-from: rgba(59, 130, 246, 0.5);
+}
+
+.hover\:text-accent-blue:hover {
+  color: #3b82f6;
+}
+
+.hover\:bg-accent-blue:hover {
+  background-color: #3b82f6;
+}
+
+.hover\:bg-accent-orange:hover {
+  background-color: #f97316;
+}
+
+.hover\:border-accent-blue:hover {
+  border-color: #3b82f6;
+}
+
+.hover\:border-accent-orange:hover {
+  border-color: #f97316;
+}
+
+.hover\:border-accent-blue\/20:hover {
+  border-color: rgba(59, 130, 246, 0.20);
+}
+
+.hover\:border-accent-blue\/50:hover {
+  border-color: rgba(59, 130, 246, 0.50);
+}
+
+.hover\:border-accent-orange\/50:hover {
+  border-color: rgba(249, 115, 22, 0.50);
+}
+
+.hover\:text-accent-blue:hover .group-hover\:text-accent-blue {
+  color: #3b82f6;
+}
+
+.group:hover .group-hover\:text-accent-blue {
+  color: #3b82f6;
+}
+
+.group:hover .group-hover\:border-accent-blue {
+  border-color: #3b82f6;
+}
+
+.group:hover .group-hover\:bg-accent-blue\/10 {
+  background-color: rgba(59, 130, 246, 0.10);
+}
