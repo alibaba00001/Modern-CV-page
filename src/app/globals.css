@@ -4,17 +4,17 @@
   --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --color-background: #050a14;
-  --color-foreground: #f8fafc;
-  --color-accent-blue: #3b82f6;
-  --color-accent-orange: #f97316;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-orange: var(--accent-orange);
 }
 
 :root {
-  --background: #050a14;
-  --foreground: #f8fafc;
-  --accent-blue: #3b82f6;
-  --accent-orange: #f97316;
+  --background: #0b111a; /* Deep graphite */
+  --foreground: #e2e8f0; /* Soft gray */
+  --accent-blue: #4a80a6; /* Steel-blue / Teal */
+  --accent-orange: #c68a53; /* Oxidized copper / Amber */
 }
 
 html,
@@ -40,130 +40,54 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: var(--accent-blue);
 }
 
-/* ===== Accent color safelist — prevent purging of dynamic classes ===== */
-.text-accent-blue {
-  color: #3b82f6;
+/* Blueprint / Grid Background */
+.bg-blueprint {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
 }
 
-.text-accent-orange {
-  color: #f97316;
-}
+/* ===== Accent color safelist ===== */
+.text-accent-blue { color: var(--accent-blue); }
+.text-accent-orange { color: var(--accent-orange); }
+.bg-accent-blue { background-color: var(--accent-blue); }
+.bg-accent-orange { background-color: var(--accent-orange); }
+.border-accent-blue { border-color: var(--accent-blue); }
+.border-accent-orange { border-color: var(--accent-orange); }
 
-.bg-accent-blue {
-  background-color: #3b82f6;
-}
+.bg-accent-blue\/5 { background-color: color-mix(in srgb, var(--accent-blue) 5%, transparent); }
+.bg-accent-blue\/10 { background-color: color-mix(in srgb, var(--accent-blue) 10%, transparent); }
+.bg-accent-orange\/5 { background-color: color-mix(in srgb, var(--accent-orange) 5%, transparent); }
+.bg-accent-orange\/10 { background-color: color-mix(in srgb, var(--accent-orange) 10%, transparent); }
 
-.bg-accent-orange {
-  background-color: #f97316;
-}
+.border-accent-blue\/10 { border-color: color-mix(in srgb, var(--accent-blue) 10%, transparent); }
+.border-accent-blue\/20 { border-color: color-mix(in srgb, var(--accent-blue) 20%, transparent); }
+.border-accent-blue\/30 { border-color: color-mix(in srgb, var(--accent-blue) 30%, transparent); }
+.border-accent-blue\/50 { border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent); }
 
-.border-accent-blue {
-  border-color: #3b82f6;
-}
+.border-accent-orange\/10 { border-color: color-mix(in srgb, var(--accent-orange) 10%, transparent); }
+.border-accent-orange\/30 { border-color: color-mix(in srgb, var(--accent-orange) 30%, transparent); }
 
-.border-accent-orange {
-  border-color: #f97316;
-}
+.from-accent-blue\/50 { --tw-gradient-from: color-mix(in srgb, var(--accent-blue) 50%, transparent); }
 
-.bg-accent-blue\/5 {
-  background-color: rgba(59, 130, 246, 0.05);
-}
+.hover\:text-accent-blue:hover { color: var(--accent-blue); }
+.hover\:bg-accent-blue:hover { background-color: var(--accent-blue); }
+.hover\:bg-accent-orange:hover { background-color: var(--accent-orange); }
 
-.bg-accent-blue\/10 {
-  background-color: rgba(59, 130, 246, 0.10);
-}
+.hover\:border-accent-blue:hover { border-color: var(--accent-blue); }
+.hover\:border-accent-orange:hover { border-color: var(--accent-orange); }
+.hover\:border-accent-blue\/20:hover { border-color: color-mix(in srgb, var(--accent-blue) 20%, transparent); }
+.hover\:border-accent-blue\/50:hover { border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent); }
+.hover\:border-accent-orange\/50:hover { border-color: color-mix(in srgb, var(--accent-orange) 50%, transparent); }
 
-.bg-accent-orange\/5 {
-  background-color: rgba(249, 115, 22, 0.05);
-}
+.hover\:text-accent-blue:hover .group-hover\:text-accent-blue { color: var(--accent-blue); }
+.group:hover .group-hover\:text-accent-blue { color: var(--accent-blue); }
+.group:hover .group-hover\:border-accent-blue { border-color: var(--accent-blue); }
+.group:hover .group-hover\:bg-accent-blue\/10 { background-color: color-mix(in srgb, var(--accent-blue) 10%, transparent); }
 
-.bg-accent-orange\/10 {
-  background-color: rgba(249, 115, 22, 0.10);
-}
-
-.border-accent-blue\/10 {
-  border-color: rgba(59, 130, 246, 0.10);
-}
-
-.border-accent-blue\/20 {
-  border-color: rgba(59, 130, 246, 0.20);
-}
-
-.border-accent-blue\/30 {
-  border-color: rgba(59, 130, 246, 0.30);
-}
-
-.border-accent-blue\/50 {
-  border-color: rgba(59, 130, 246, 0.50);
-}
-
-.border-accent-orange\/10 {
-  border-color: rgba(249, 115, 22, 0.10);
-}
-
-.border-accent-orange\/30 {
-  border-color: rgba(249, 115, 22, 0.30);
-}
-
-.from-accent-blue\/50 {
-  --tw-gradient-from: rgba(59, 130, 246, 0.5);
-}
-
-.hover\:text-accent-blue:hover {
-  color: #3b82f6;
-}
-
-.hover\:bg-accent-blue:hover {
-  background-color: #3b82f6;
-}
-
-.hover\:bg-accent-orange:hover {
-  background-color: #f97316;
-}
-
-.hover\:border-accent-blue:hover {
-  border-color: #3b82f6;
-}
-
-.hover\:border-accent-orange:hover {
-  border-color: #f97316;
-}
-
-.hover\:border-accent-blue\/20:hover {
-  border-color: rgba(59, 130, 246, 0.20);
-}
-
-.hover\:border-accent-blue\/50:hover {
-  border-color: rgba(59, 130, 246, 0.50);
-}
-
-.hover\:border-accent-orange\/50:hover {
-  border-color: rgba(249, 115, 22, 0.50);
-}
-
-.hover\:text-accent-blue:hover .group-hover\:text-accent-blue {
-  color: #3b82f6;
-}
-
-.group:hover .group-hover\:text-accent-blue {
-  color: #3b82f6;
-}
-
-.group:hover .group-hover\:border-accent-blue {
-  border-color: #3b82f6;
-}
-
-.group:hover .group-hover\:bg-accent-blue\/10 {
-  background-color: rgba(59, 130, 246, 0.10);
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

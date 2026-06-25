@@ -10,8 +10,8 @@ const schools = [
         degree: "B.S. Mechanical Engineering",
         period: "2022 – 2026",
         location: "Monterrey, NL, Mexico",
-        gpa: "GPA: 93 / 100",
-        description: "",
+        gpa: "GPA: 91 / 100",
+        description: "Coursework: Machine Design, Manufacturing, Thermodynamics, Fluid Mechanics, Finite Element Analysis, Engineering Materials.",
         logo: "/tec-de-monterrey-seeklogo.png",
         accent: "accent-blue",
     },
@@ -21,7 +21,7 @@ const schools = [
         period: "2025",
         location: "Seoul, South Korea",
         gpa: "GPA: 96 / 100",
-        description: "Focus: Data Analysis, International Trade, Applied Engineering Materials.",
+        description: "Selected coursework: Data Analysis, International Trade, Applied Engineering Materials.",
         logo: "/skku-sungkyunkwan-university-seeklogo.png",
         accent: "accent-orange",
     },
@@ -29,7 +29,7 @@ const schools = [
 
 const Education = () => {
     return (
-        <section className="relative w-full bg-background pb-24">
+        <section className="relative w-full pb-24">
             <SectionBanner title="Education" />
 
             <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-24 pt-24">

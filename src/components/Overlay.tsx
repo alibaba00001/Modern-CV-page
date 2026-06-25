@@ -11,36 +11,34 @@ const Overlay = () => {
         offset: ["start start", "end end"]
     });
 
-    // Section 1: "Omar Ali"
-    const opacity1 = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1, 0]);
-    const scale1 = useTransform(scrollYProgress, [0, 0.2], [1, 1.2]);
-    const filter1 = useTransform(scrollYProgress, [0.1, 0.2], ["blur(0px)", "blur(10px)"]);
-    const y1 = useTransform(scrollYProgress, [0, 0.2], [0, -100]);
+    // Section 1: Name and Title  (scroll 0% → 33%)
+    const opacity1 = useTransform(scrollYProgress, [0, 0.22, 0.28, 0.33], [1, 1, 0.5, 0]);
+    const scale1 = useTransform(scrollYProgress, [0, 0.33], [1, 1.05]);
+    const filter1 = useTransform(scrollYProgress, [0.22, 0.33], ["blur(0px)", "blur(8px)"]);
+    const y1 = useTransform(scrollYProgress, [0, 0.33], [0, -60]);
 
-    // Section 2: "I improve systems and processes..."
-    const opacity2 = useTransform(scrollYProgress, [0.2, 0.3, 0.4, 0.5], [0, 1, 1, 0]);
-    const scale2 = useTransform(scrollYProgress, [0.2, 0.3], [0.8, 1]);
-    const x2 = useTransform(scrollYProgress, [0.2, 0.5], [-100, 50]);
-    // Combine blur in and out into a single transform
+    // Section 2: Supply Chain  (scroll 33% → 66%)
+    const opacity2 = useTransform(scrollYProgress, [0.28, 0.38, 0.56, 0.64], [0, 1, 1, 0]);
+    const scale2 = useTransform(scrollYProgress, [0.28, 0.38], [0.92, 1]);
+    const x2 = useTransform(scrollYProgress, [0.28, 0.64], [-60, 60]);
     const filter2 = useTransform(
         scrollYProgress,
-        [0.2, 0.3, 0.4, 0.5],
-        ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"]
+        [0.28, 0.38, 0.56, 0.64],
+        ["blur(8px)", "blur(0px)", "blur(0px)", "blur(8px)"]
     );
 
-    // Section 3: "Experience from factory floors..."
-    const opacity3 = useTransform(scrollYProgress, [0.5, 0.6, 0.7, 0.8], [0, 1, 1, 0]);
-    const scale3 = useTransform(scrollYProgress, [0.5, 0.6], [0.8, 1]);
-    const x3 = useTransform(scrollYProgress, [0.5, 0.8], [100, -50]);
-    // Combine blur in and out into a single transform
+    // Section 3: Manufacturing  (scroll 66% → 100%)
+    const opacity3 = useTransform(scrollYProgress, [0.60, 0.70, 0.92, 1.0], [0, 1, 1, 0]);
+    const scale3 = useTransform(scrollYProgress, [0.60, 0.70], [0.92, 1]);
+    const x3 = useTransform(scrollYProgress, [0.60, 1.0], [60, -60]);
     const filter3 = useTransform(
         scrollYProgress,
-        [0.5, 0.6, 0.7, 0.8],
-        ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"]
+        [0.60, 0.70, 0.92, 1.0],
+        ["blur(8px)", "blur(0px)", "blur(0px)", "blur(8px)"]
     );
 
     return (
-        <div ref={containerRef} className="absolute top-0 left-0 w-full h-[500vh] pointer-events-none z-10">
+        <div ref={containerRef} className="relative w-full h-[300vh] bg-blueprint">
 
             {/* Container that sticks to the viewport */}
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
@@ -53,8 +51,11 @@ const Overlay = () => {
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white drop-shadow-2xl">
                         Omar Ali
                     </h1>
-                    <p className="mt-4 text-xl md:text-2xl font-light tracking-tighter text-white drop-shadow-2xl">
-                        Engineering & Operations
+                    <p className="mt-6 text-xl md:text-3xl font-light tracking-tight text-white drop-shadow-2xl">
+                        Mechanical Engineer
+                    </p>
+                    <p className="mt-2 text-base md:text-lg font-medium tracking-widest text-accent-blue uppercase drop-shadow-2xl">
+                        Manufacturing, Sourcing & Automation
                     </p>
                 </motion.div>
 
@@ -68,11 +69,11 @@ const Overlay = () => {
                     }}
                     className="absolute inset-x-0 mx-auto md:mx-0 md:left-24 w-[90%] md:max-w-2xl px-6 text-center md:text-left"
                 >
-                    <h2 className="text-3xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-                        I improve systems <br className="hidden md:block" /> and <span className="text-accent-blue">processes</span>.
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
+                        Optimizing <br className="hidden md:block" /> the <span className="text-accent-blue">Supply Chain</span>.
                     </h2>
-                    <p className="mt-4 md:mt-6 text-lg md:text-2xl font-light text-white/80">
-                        Through engineering, data, and execution.
+                    <p className="mt-4 md:mt-6 text-base md:text-xl font-light text-white/80 leading-relaxed">
+                        Mechanical Engineering graduate from Tecnológico de Monterrey with experience in sourcing, supplier qualification, SAP demand analysis, and cost-reduction.
                     </p>
                 </motion.div>
 
@@ -86,12 +87,12 @@ const Overlay = () => {
                     }}
                     className="absolute inset-x-0 mx-auto md:mx-0 md:left-auto md:right-24 w-[90%] md:max-w-2xl px-6 text-center md:text-right"
                 >
-                    <h2 className="text-3xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-                        Experience from <br className="hidden md:block" />
-                        <span className="text-accent-orange">field operations</span>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
+                        Precision in <br className="hidden md:block" />
+                        <span className="text-accent-orange">Manufacturing</span>
                     </h2>
-                    <p className="mt-4 md:mt-6 text-lg md:text-2xl font-light text-white/80">
-                        to international collaboration.
+                    <p className="mt-4 md:mt-6 text-base md:text-xl font-light text-white/80 leading-relaxed">
+                        Extensive hands-on experience in CNC manufacturing, CFD simulation, structural design, and process automation with VBA and Python.
                     </p>
                 </motion.div>
 

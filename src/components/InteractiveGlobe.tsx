@@ -94,13 +94,13 @@ const InteractiveGlobe = () => {
         VISITED_COUNTRIES.includes(countryName) || VISITED_COUNTRIES.includes(nameMap[countryName]);
 
     return (
-        <div className="relative w-full" style={{ background: "#050a14" }}>
+        <div className="relative w-full z-10">
             <SectionBanner title="Global Perspective" />
 
             <div
                 ref={containerRef}
                 className="relative w-full"
-                style={{ height: "100vh" }}
+                style={{ height: "100vh", touchAction: "pan-y" }}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
             >
@@ -113,7 +113,7 @@ const InteractiveGlobe = () => {
                     className="absolute top-10 left-0 right-0 z-10 text-center pointer-events-none"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3 px-4">
-                        Global <span style={{ color: "#3b82f6" }}>Perspective</span>
+                        Global <span className="text-accent-blue">Perspective</span>
                     </h2>
                     <p className="text-white/40 text-[10px] md:text-sm uppercase tracking-widest px-4">
                         29 countries · {isTouch ? "swipe to rotate" : "hover globe to zoom · drag to rotate"}
@@ -128,21 +128,21 @@ const InteractiveGlobe = () => {
                     backgroundColor="rgba(0,0,0,0)"
                     showGlobe={false}
                     showAtmosphere={true}
-                    atmosphereColor="#3b82f6"
+                    atmosphereColor="#4a80a6"
                     atmosphereAltitude={0.15}
                     polygonsData={countries.features}
                     polygonAltitude={(d: any) => d === hoverD ? 0.06 : 0.01}
                     polygonCapColor={(d: any) =>
                         d === hoverD
-                            ? "#f97316"
+                            ? "#c68a53"
                             : isVisited(d.properties.ADMIN)
-                                ? "rgba(59, 130, 246, 0.45)"
+                                ? "rgba(74, 128, 166, 0.45)"
                                 : "rgba(20, 30, 50, 0.15)"
                     }
                     polygonSideColor={() => "rgba(0,0,0,0)"}
                     polygonStrokeColor={(d: any) =>
                         isVisited(d.properties.ADMIN)
-                            ? "#3b82f6"
+                            ? "#4a80a6"
                             : "rgba(255,255,255,0.04)"
                     }
                     onPolygonHover={setHoverD}
@@ -151,18 +151,18 @@ const InteractiveGlobe = () => {
                 {/* Hover card */}
                 {hoverD && isVisited(hoverD.properties.ADMIN) && (
                     <div
-                        className="absolute top-24 md:top-24 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-8 backdrop-blur-md border p-4 md:p-5 rounded-2xl pointer-events-none min-w-[140px] md:min-w-[180px] z-10"
-                        style={{ background: "rgba(5,10,20,0.9)", borderColor: "rgba(59,130,246,0.3)" }}
+                        className="absolute top-24 md:top-24 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-8 backdrop-blur-md border p-4 md:p-5 rounded-none pointer-events-none min-w-[140px] md:min-w-[180px] z-10"
+                        style={{ background: "color-mix(in srgb, var(--background) 90%, transparent)", borderColor: "color-mix(in srgb, var(--accent-blue) 30%, transparent)" }}
                     >
                         <h4 className="text-base md:text-lg font-bold text-white mb-1">{hoverD.properties.ADMIN}</h4>
-                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest" style={{ color: "#3b82f6" }}>Visited</p>
+                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-accent-blue">Visited</p>
                     </div>
                 )}
 
                 {/* Bottom blend into next section */}
                 <div
                     className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-10"
-                    style={{ background: "linear-gradient(to bottom, transparent, #050a14)" }}
+                    style={{ background: "linear-gradient(to bottom, transparent, var(--background))" }}
                 />
             </div>
         </div>

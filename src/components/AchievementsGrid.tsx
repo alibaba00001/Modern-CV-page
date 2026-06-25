@@ -55,7 +55,7 @@ const socialImpact = [
 
 const AchievementsGrid = () => {
     return (
-        <section className="relative w-full pb-24" style={{ background: "#050a14" }}>
+        <section className="relative w-full pb-24">
             <SectionBanner title="Impact & Recognition" />
 
             <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-24 pt-24 space-y-16 md:space-y-24">
@@ -69,7 +69,7 @@ const AchievementsGrid = () => {
                         transition={{ duration: 0.7 }}
                         className="flex items-center gap-3 mb-8"
                     >
-                        <Award className="w-5 h-5 md:w-6 md:h-6" style={{ color: "#3b82f6" }} />
+                        <Award className="w-5 h-5 md:w-6 md:h-6" style={{ color: "var(--accent-blue)" }} />
                         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white">Academic Achievements</h2>
                     </motion.div>
 
@@ -81,17 +81,17 @@ const AchievementsGrid = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="flex items-start gap-4 p-5 rounded-xl border transition-colors duration-300"
+                                className="flex items-start gap-4 p-5 rounded-none border transition-colors duration-300"
                                 style={{
-                                    background: "rgba(255,255,255,0.02)",
-                                    borderColor: "rgba(59,130,246,0.08)",
+                                    background: "color-mix(in srgb, white 2%, transparent)",
+                                    borderColor: "color-mix(in srgb, var(--accent-blue) 20%, transparent)",
                                 }}
                             >
                                 <span className="text-2xl mt-0.5 select-none">{item.emoji}</span>
                                 <div>
                                     <p className="text-white font-semibold text-sm leading-snug">{item.title}</p>
                                     <p className="text-white/40 text-xs mt-1">{item.sub}</p>
-                                    <p className="text-xs font-bold mt-1.5" style={{ color: "#3b82f6" }}>{item.year}</p>
+                                    <p className="text-xs font-bold mt-1.5" style={{ color: "var(--accent-blue)" }}>{item.year}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -107,7 +107,7 @@ const AchievementsGrid = () => {
                         transition={{ duration: 0.7 }}
                         className="flex items-center gap-3 mb-8"
                     >
-                        <Heart className="w-5 h-5 md:w-6 md:h-6" style={{ color: "#f97316" }} />
+                        <Heart className="w-5 h-5 md:w-6 md:h-6" style={{ color: "var(--accent-orange)" }} />
                         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white">Social Impact</h2>
                     </motion.div>
 
@@ -119,27 +119,27 @@ const AchievementsGrid = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                                className="group relative flex flex-col rounded-2xl overflow-hidden border transition-all duration-500"
+                                className="group relative flex flex-col rounded-none overflow-hidden border transition-all duration-500"
                                 style={{
-                                    background: "rgba(255,255,255,0.02)",
-                                    borderColor: "rgba(249,115,22,0.1)",
+                                    background: "color-mix(in srgb, white 2%, transparent)",
+                                    borderColor: "color-mix(in srgb, var(--accent-orange) 20%, transparent)",
                                 }}
                             >
                                 {/* Image with hover reveal */}
-                                <div className="relative h-44 overflow-hidden">
+                                <div className="relative h-44 overflow-hidden bg-black/20 flex items-center justify-center">
                                     <Image
                                         src={item.image}
                                         alt={item.title}
                                         fill
-                                        className="object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
+                                        className="object-contain opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
                                     />
                                     {/* Gradient overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#050a14] via-[#050a14]/60 to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/60 to-transparent" />
                                     {/* Tag on image */}
                                     <div className="absolute top-3 left-3">
                                         <span
                                             className="px-3 py-1 rounded-full text-xs font-bold tracking-wider"
-                                            style={{ background: "rgba(249,115,22,0.15)", color: "#f97316" }}
+                                            style={{ background: "color-mix(in srgb, var(--accent-orange) 15%, transparent)", color: "var(--accent-orange)" }}
                                         >
                                             {item.tag}
                                         </span>
