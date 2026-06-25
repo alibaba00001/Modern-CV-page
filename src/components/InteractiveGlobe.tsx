@@ -100,7 +100,7 @@ const InteractiveGlobe = () => {
             <div
                 ref={containerRef}
                 className="relative w-full"
-                style={{ height: "100vh", touchAction: "pan-y" }}
+                style={{ height: isTouch ? "65vh" : "100vh", touchAction: "pan-y" }}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
             >
